@@ -1,4 +1,4 @@
-// Clase 104 Curso JavaScript 
+// Clase 104 Curso JavaScript  (Ejemplos Corregidos, saqué 8/10)
 
 /* 1. Hoisting: Declara una variable con var después de usarla en un console.log
     ¿Qué sucede*/

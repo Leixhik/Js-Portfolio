@@ -1,4 +1,4 @@
-// Arreglos (Arrays)
+    // Arreglos (Arrays)
 
 const numeros = [10, 20, 30, 40, 50];
 
