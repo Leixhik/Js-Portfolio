@@ -5,6 +5,7 @@
     let ejemplo1 = 'Hola';
     let ejemplo2 = 'Mundo';
     console.log(ejemplo1 + ejemplo2);
+    console.log(ejemplo1 + " " + ejemplo2); // Gemini recomendación.
 
     /* R: Se han concatenado los Strings pero falta un espacio entre ellos*/
 //----------------------------------------------------------------------------------------
@@ -30,7 +31,7 @@
     let ejemplo5 = 'Quetal';
     console.log(ejemplo5.slice(2,6));
 
-    /* R: Se utilizó el método slice para obtener una lista de carácteres de un String. */
+    /* R: Se utilizó el método slice para obtener una subcadena de un String. */
 //----------------------------------------------------------------------------------------
 
 /*  5. Búsqueda de substrings: Busca la posición de un substring dentro de un string usando
@@ -40,8 +41,8 @@
     console.log(ejemplo6.indexOf('o'));
     console.log(ejemplo6.lastIndexOf('o'));
 
-    /* R: El indexOf obtiene el primer índice de la búsqueda, mientras que lastIndexOf
-     muestra el último índice de la búsqueda.*/
+    /* R: El indexOf() devuelve el índice de la primera ocurrencia de 'o',
+    y lastIndexOf() devuelve el índice de la última ocurrencia..*/
 //----------------------------------------------------------------------------------------
 
 /*   6. Conversión a mayúsculas/ minúsculas: Convierte un string a mayúsculas con 
@@ -60,7 +61,8 @@
     let ejemplo9 = 'Hola soy un texto para ejemplo';
     console.log(ejemplo9.replace('Hola', 'Mirame'));
 
-    /* R: Utilizando el replace(), se selecciona el string y después el nuevo string. */
+    /* R: Utilizando replace(), se especifica primero la subcadena a reemplazar y luego 
+    la nueva subcadena. */
 //----------------------------------------------------------------------------------------
 
 /*  8. Eliminación de espacios en blanco: Elimina los espacios en blanco al principio y 
@@ -70,7 +72,8 @@
     console.log(ejemplo10.trim());
 
     /* R: A simple vista no parece que desaparezca nada pero en el resultado funciona
-    correctamente. */
+    correctamente. La diferencia se vería mejor si se compara la longitud antes y 
+    después de usar trim() */
 //----------------------------------------------------------------------------------------
 
 /*  9.  Ejemplo práctico (formateo de nombres): Pide al usuario su nombre y apellido y 
@@ -78,7 +81,12 @@
 
     // let ejemplo11 = prompt('Ingresa tu nombre: ');
     // let ejemplo12 = prompt('Ingresa tu apellido: ');
-    // console.log(`¡Buen día ${ejemplo12}, ${ejemplo11}!`); 
+    // if (ejemplo11 && ejemplo12){
+    //     console.log(`${ejemplo12}, ${ejemplo11}`);
+    //     alert(`¡Buen día ${ejemplo12} ${ejemplo11}!`);
+    // }else{
+    //     alert(`Por favor, ingresa tanto tu nombre como tu apellido.`);
+    // }
     // /*Comment para no recargar página */
     
     /* R: Utilicé la función prompt para obtener datos del usuario por el navegador 
@@ -92,7 +100,5 @@
     let b = 10;
     console.log(`El resultado de ${a} + ${b} es = ${a + b}`);
 
-    /* R: Se ha creado el formato de template literal con variables. */
-
-    
-    
+    /* R: Se ha creado un template literal que incluye variables (a y b) y 
+    una expresión (a + b), mostrando el resultado de la suma. */
