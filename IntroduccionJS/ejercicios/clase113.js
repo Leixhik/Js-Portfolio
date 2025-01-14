@@ -1,4 +1,4 @@
-// Clase 113: Objetos en JavaScript
+// Clase 113: Objetos en JavaScript (Se han corregido con Gemini)
 
 /*  1. Crea un objeto llamado persona con las propiedades nombre, edad y profesión.
 Asigna valores a estas propiedades. */
@@ -69,20 +69,21 @@ método llamado calcularArea que calcule y retorne el área del rectángulo
 Cada objeto debe representar a un estudiante con las propiedades nombre y
 calificación. */
 
-    const estudiante = {
+    /*const estudiante = {
         nombre: '',
         calificacion: 0.0
-    }
+    } ---> Código innecesario, pues es redundante*/
     
-    const estudiantes = [{
-        nombre: 'Rodolfo', calificacion: 10.0
-    } , {
-        nombre: 'Axel', calificacion: 10.0
-    } , {
-        nombre: 'Mamas', calificacion: 9.0
-    }];
+    const estudiantes = [
+        {nombre: 'Rodolfo', calificacion: 10.0}, 
+        {nombre: 'Axel', calificacion: 10.0}, 
+        {nombre: 'Mamas', calificacion: 9.0}
+    ];
 
     console.log(estudiantes);
+    /* Corrección de Gemini: no es necesario crear el objeto estudiante por separaddo. Solo
+    crear un array que contenga instancias de objetos estudiante. Sin embargo el ejercicio
+    estaba correcto pero con código redundante. */
 //----------------------------------------------------------------------------------------+
 
 /*  8. Recorre el array estudiante del ejercicio 7 y muestra el nombre y la calificación
@@ -105,26 +106,33 @@ correspondiente. */
         3. Multiplicación
         4. División`));
 
-    const calculadora = {
-        suma : a + b,
-        resta: a - b,
-        mult: a * b,
-        divi: a / b
-    }
+    const calculadora = { /* Fallé en hacer que las operaciones fueran funciones.*/
+        suma : function(a, b){return a + b},
+        resta: function(a, b){return a - b},
+        mult: function(a, b){return a * b},
+        divi: function(a, b){
+            if(b === 0){
+                return "Error: División por cero.";
+        }
+            return a / b;
+        }
+    };
 
     switch(operacion){
         case 1:
-            console.log(`Resultado de la suma = ${calculadora.suma}`);
+            console.log(`Resultado de la suma = ${calculadora.suma(a ,b)}`);
             break;
         case 2:
-            console.log(`Resultado de la resta = ${calculadora.resta}`);
+            console.log(`Resultado de la resta = ${calculadora.resta(a ,b)}`);
             break;
         case 3:
-            console.log(`Resultado de la multiplicación = ${calculadora.mult}`);
+            console.log(`Resultado de la multiplicación = ${calculadora.mult(a ,b)}`);
             break;
         case 4:
-            console.log(`Resultado de la división = ${calculadora.div}`);
+            console.log(`Resultado de la división = ${calculadora.div(a ,b)}`);
             break;
+        default:
+            console.log("Operación no válida.");
     } 
             
 //----------------------------------------------------------------------------------------+
@@ -133,12 +141,19 @@ correspondiente. */
 hacerSonido. El método hacerSonido debe mostrar un mensaje en la consola que dependa del 
 tipo de mascota (Ej. 'Guau' si es un perro, 'Miau' si es un gato). */
 
-    let tipoDeMascota = parseInt(prompt('¿Es un perro(1) o un gato(2)?'));
+    let tipoDeMascota;
+    do { /* Gemini: do-while para asegurar que el usuario ingrese un valor.  */
+        tipoDeMascota = parseInt(prompt('¿Es un perro (1) o un gato (2)?'));
+        if (isNaN(tipoDeMascota) || (tipoDeMascota !== 1 && tipoDeMascota !== 2)) {
+            alert("Por favor, ingresa 1 para Perro o 2 para Gato.");
+        }
+    } while (isNaN(tipoDeMascota) || (tipoDeMascota !== 1 && tipoDeMascota !== 2));
+
     let nombreMascota = prompt('¿Cuál es su nombre?');
 
     const mascota = {
         nombre: nombreMascota,
-        tipo: tipoDeMascota === 1 ? 'Perro' : 'Gato',
+        tipo: tipoDeMascota === 1 ? 'Perro' : 'Gato', /* <- Nueva forma de ver condicionales. */
         hacerSonido: function(){
             if(this.tipo === 'Perro'){
                 console.log("Guau");
