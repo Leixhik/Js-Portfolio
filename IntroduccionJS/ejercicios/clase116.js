@@ -113,10 +113,43 @@ pueda retirar más dinero del que hay en la cuenta. */
     console.log(cuentaBancaria.retirar()); */
 //----------------------------------------------------------------------------------------
 
-/*  7. Crea un objeto llamado temporizador con una prioridad tiempo inicializada en 0.
+/*  7. Crea un objeto llamado temporizador con una propiedaad tiempo inicializada en 0.
 Agrega métodos iniciar(), detener() y reiniciar(). El método iniciar() debe comenzar a 
 incrementar la propiedad tiempo cada segundo. El método detener() debe detener el incremento.
 El método reiniciar() debe volver a poner tiempo en 0. (Este ejercicio requiere el uso de
 setIntervar y cleanInterval). */
 
-    
+    const temporizador = {
+        tiempo: 0,
+        intervalo: null, // se guardará el intervalo
+
+
+        iniciar: function(){
+            // Si ya hay un intervalo en marcha, no hacemos nada. Evita múltiples intervalos simultáneos.
+            if (this.intervalo !== null) return;
+
+            // Usamos setInterval para incrementar el tiempo cada segundo
+            this.intervalo = setInterval(() => {
+                this.tiempo++;
+                console.log(`Tiempo: ${this.tiempo}`);
+            }, 1000);
+        },
+
+        detener: function(){
+            // Detenemos el intervalo el intervalo y lo limpiamos 
+            clearInterval(this.intervalo);
+            this.intervalo = null;
+        },
+
+        reiniciar: function(){
+            // Detenemos el intervalo si está en marcha
+            this.detener();
+            // Reiniciamos el tiempo a 0
+            console.log(`Tiempo reiniciando: ${this.tiempo}`);
+        }
+    };
+
+// Ejemplos de uso
+temporizador.iniciar(); // Comienza a incrementar el tiempo
+setTimeout(() => temporizador.detener(), 5000); // Detiene después de 5 segundos
+setTimeout(() => temporizador.reiniciar(), 7000); // Reinicia después de 7 segundos
