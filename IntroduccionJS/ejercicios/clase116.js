@@ -153,3 +153,40 @@ setIntervar y cleanInterval). */
 temporizador.iniciar(); // Comienza a incrementar el tiempo
 setTimeout(() => temporizador.detener(), 5000); // Detiene después de 5 segundos
 setTimeout(() => temporizador.reiniciar(), 7000); // Reinicia después de 7 segundos
+
+/* Aprendizaje propio (problema hecho por IA): al inicio creé muy bien los métodos, y el 
+tiempo, pero la IA implementó la propiedad de intervalo con null para ser llenado pro el
+setInterval que este se encarga de aumentar el contador por medio de 1 segundo y guardando
+el valor en intervalo. La función detener utiliza el clearInteral con el this.tiempo
+para detener. Finalmente usamos la función reiniciar llamando el método detener y reiniciando
+el tiempo a 0.
+
+Al final iniciamos el temporizador, detenemos al segundo 5 con .detener() y reiniciamos
+al segundo 7 con .reiniciar() volviendo tiempo a 0. */
+
+//----------------------------------------------------------------------------------------
+
+/*  8. Crea un objeto llamado listaDeTareas con una propiedad tareas que sea un array vacío.
+Agrega métodos para agregaTarea(tarea), eliminarTarea(indice) y mostrarTareas(). */
+
+    const listaDeTareas = {
+        tareas: [],
+        agregarTarea: function(tarea){
+            return this.tarea(tarea);
+        },
+        eliminarTarea: function(indice){
+            
+        },
+        mostrarTareas: function() {
+
+        }
+    }
+
+//----------------------------------------------------------------------------------------
+
+/*  9. Crea un objeto llamado validador con métodos para validar diferentes tipos de datos:
+- esEmail(email): Retorna true si el email tiene un formato válido, false en caso contrario
+    (pueden usarse expresiones regulares para esto).
+
+- esNumerotelefonico(telefono): Retorna true si el teléfono tiene un formato válido, false 
+en caso contrario. (Puede usar expresiones regulares).  */
