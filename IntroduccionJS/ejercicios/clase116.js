@@ -150,9 +150,9 @@ setIntervar y cleanInterval). */
     };
 
 // Ejemplos de uso
-temporizador.iniciar(); // Comienza a incrementar el tiempo
+/*temporizador.iniciar(); // Comienza a incrementar el tiempo
 setTimeout(() => temporizador.detener(), 5000); // Detiene después de 5 segundos
-setTimeout(() => temporizador.reiniciar(), 7000); // Reinicia después de 7 segundos
+setTimeout(() => temporizador.reiniciar(), 7000); // Reinicia después de 7 segundos*/
 
 /* Aprendizaje propio (problema hecho por IA): al inicio creé muy bien los métodos, y el 
 tiempo, pero la IA implementó la propiedad de intervalo con null para ser llenado pro el
@@ -172,16 +172,28 @@ Agrega métodos para agregaTarea(tarea), eliminarTarea(indice) y mostrarTareas()
     const listaDeTareas = {
         tareas: [],
         agregarTarea: function(tarea){
-            return this.tarea(tarea);
+            this.tareas.push(tarea);
         },
         eliminarTarea: function(indice){
-            
+            if (indice >= 0 && indice < this.tareas.length) { //Asegurar que el índice no es 0.
+                this.tareas.splice(indice, 1);
+                console.log('Se ha eliminado la tarea.');
+            } else {
+                console.log(`Índice no válido.`);
+            }
         },
         mostrarTareas: function() {
-
+            this.tareas.forEach((tarea, index) => {
+                console.log(`${index + 1}: ${tarea}`);
+            });
         }
     }
 
+    listaDeTareas.agregarTarea('Recoger casa');
+    listaDeTareas.agregarTarea('Hacer la compra');
+    listaDeTareas.mostrarTareas();
+    listaDeTareas.eliminarTarea(0);
+    listaDeTareas.mostrarTareas();
 //----------------------------------------------------------------------------------------
 
 /*  9. Crea un objeto llamado validador con métodos para validar diferentes tipos de datos:
@@ -190,3 +202,21 @@ Agrega métodos para agregaTarea(tarea), eliminarTarea(indice) y mostrarTareas()
 
 - esNumerotelefonico(telefono): Retorna true si el teléfono tiene un formato válido, false 
 en caso contrario. (Puede usar expresiones regulares).  */
+
+    const validador = {
+        esEmail: function(email){            
+            const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return console.log(pattern.test(email) ? "El Email es Válido" : "El Email es Inválido");
+        },
+        esNumeroTelefonico: function(telefono){
+            
+        }
+    }
+
+    validador.esEmail("ltarono@hotmail.com"); // Válido
+    validador.esEmail("leija2hotmail.com"); // Inválido
+    validador.esEmail("leijos10@hotmailcom"); // Inválido
+    validador.esEmail("pawishito@outlook,com"); // Inválido
+    validador.esEmail("pawishito@outlook.com"); // Válido
+
+
