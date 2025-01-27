@@ -209,7 +209,8 @@ en caso contrario. (Puede usar expresiones regulares).  */
             return console.log(pattern.test(email) ? "El Email es Válido" : "El Email es Inválido");
         },
         esNumeroTelefonico: function(telefono){
-            
+           const pattern = /^[+]?(1\-|1\s|1|\d{3}\-|\d{3}\s|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/g;
+           return console.log(pattern.test(telefono) ? "El teléfono es válido" : "El teléfono es inválido" ) ;
         }
     }
 
@@ -219,4 +220,11 @@ en caso contrario. (Puede usar expresiones regulares).  */
     validador.esEmail("pawishito@outlook,com"); // Inválido
     validador.esEmail("pawishito@outlook.com"); // Válido
 
+    validador.esNumeroTelefonico(8180261068); // Válido
+    validador.esNumeroTelefonico(8881788) // Inválido
+    validador.esNumeroTelefonico(1) // Inválido
+    validador.esNumeroTelefonico(8888888888) // Válido
 
+//----------------------------------------------------------------------------------------
+
+/*  10.  */
