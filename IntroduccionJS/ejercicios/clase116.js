@@ -227,4 +227,37 @@ en caso contrario. (Puede usar expresiones regulares).  */
 
 //----------------------------------------------------------------------------------------
 
-/*  10.  */
+/*  10. Crea un objeto llamado cajeroAutomatico con una propiedad saldo inicializada en un
+valor inicial y los siguientes métodos:
+    consultarSaldo(): Muestra el saldo actual.
+    ingresar(cantidad): Aumenta el saldo.
+    retirar(cantidad): Disminuye el saldo, verificando que haya fondos suficientes.
+    mostrarHistorial(): Muestra un historial de la últimas 5 transacciones (depósitos y 
+    retiros). (Este ejercicio requiere de el uso de un array para el historial)
+*/
+
+    const cajeroAutomatico = {
+        saldo: 150.00,
+        historial: [],
+        consultarSaldo: function(){
+            return console.log(this.saldo);
+        },
+        ingresar: function(cantidad){
+            cantidad = parseFloat(prompt(`Ingresa la cantidad a depositar: `));
+            return this.saldo += cantidad;
+        },
+        retirar: function(cantidad){
+            cantidad = parseFloat(prompt(`Ingresa la cantidad a retirar: `));
+            if (cantidad > this.saldo){
+                return `No cuentas con saldo suficiente.`;
+            }
+            this.saldo -= cantidad;
+            return this.saldo;
+        },
+        mostrarHistorial: function(){
+
+        }
+    }
+
+    cajeroAutomatico.consultarSaldo();
+
