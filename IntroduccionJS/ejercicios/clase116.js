@@ -91,7 +91,7 @@ del libro (titulo, autor y número de páginas). */
 Agrega un método para depositar(cantidad) y retirar(cantidad). Asegúrate de que no se
 pueda retirar más dinero del que hay en la cuenta. */
 
-   /* const cuentaBancaria = {
+    const cuentaBancaria = {
         titular: prompt('Ingresa el nombre del titular: '),
         saldo: 1500.00,
         depositar: function(cantidad){
@@ -110,7 +110,7 @@ pueda retirar más dinero del que hay en la cuenta. */
 
     console.log(`Nombre : ${cuentaBancaria.titular}, Saldo actual : ${cuentaBancaria.saldo}`);
     console.log(cuentaBancaria.depositar());
-    console.log(cuentaBancaria.retirar()); */
+    console.log(cuentaBancaria.retirar()); 
 //----------------------------------------------------------------------------------------
 
 /*  7. Crea un objeto llamado temporizador con una propiedaad tiempo inicializada en 0.
@@ -150,9 +150,9 @@ setIntervar y cleanInterval). */
     };
 
 // Ejemplos de uso
-/*temporizador.iniciar(); // Comienza a incrementar el tiempo
+temporizador.iniciar(); // Comienza a incrementar el tiempo
 setTimeout(() => temporizador.detener(), 5000); // Detiene después de 5 segundos
-setTimeout(() => temporizador.reiniciar(), 7000); // Reinicia después de 7 segundos*/
+setTimeout(() => temporizador.reiniciar(), 7000); // Reinicia después de 7 segundos
 
 /* Aprendizaje propio (problema hecho por IA): al inicio creé muy bien los métodos, y el 
 tiempo, pero la IA implementó la propiedad de intervalo con null para ser llenado pro el
@@ -239,25 +239,46 @@ valor inicial y los siguientes métodos:
     const cajeroAutomatico = {
         saldo: 150.00,
         historial: [],
+        
         consultarSaldo: function(){
-            return console.log(this.saldo);
+            console.log("Tu saldo actual es: $" + this.saldo.toFixed(2));
         },
-        ingresar: function(cantidad){
-            cantidad = parseFloat(prompt(`Ingresa la cantidad a depositar: `));
-            return this.saldo += cantidad;
-        },
-        retirar: function(cantidad){
-            cantidad = parseFloat(prompt(`Ingresa la cantidad a retirar: `));
-            if (cantidad > this.saldo){
-                return `No cuentas con saldo suficiente.`;
-            }
-            this.saldo -= cantidad;
-            return this.saldo;
-        },
-        mostrarHistorial: function(){
 
+        ingresar: function(cantidad){
+            cantidad = parseFloat(prompt(`Ingresa la cantidad a depositar:`));
+            if (!isNaN(cantidad) && cantidad > 0){
+                this.saldo += cantidad;
+                this.historial.unshift({cantidad, tipo: 'Ingreso', fecha: new Date()});
+            } else {
+                console.log("Por favor, ingrese una cantidad válida.")
+            }
+        },
+
+        retirar: function(cantidad){
+            cantidad = parseFloat(prompt(`Ingresa la cantidad a retirar:`));
+            if (!isNaN(cantidad) && cantidad > 0 && cantidad <= this.saldo){
+                this.saldo -= cantidad;
+                this.historial.unshift({ cantidad, tipo: 'Retiro', fecha: new Date()});
+                console.log("Retiro realizado con éxito.");
+            } else {
+                console.log("Saldo insuficiente o cantidad inválida.");
+            }
+        },
+
+        mostrarHistorial: function(){
+            console.log("Historial de las últimas 5 transacciones:");
+            for(let i = 0; i < this.historial.length; i++){
+                const transaccion = this.historial[i % 5];
+                console.log(`- ${transaccion.tipo}: ${transaccion.cantidad}`);
+            }
         }
-    }
+    };
 
     cajeroAutomatico.consultarSaldo();
+    cajeroAutomatico.ingresar();
+    cajeroAutomatico.retirar();
+    cajeroAutomatico.mostrarHistorial();
+    cajeroAutomatico.consultarSaldo();
+
+
 
