@@ -279,6 +279,5 @@ valor inicial y los siguientes métodos:
     cajeroAutomatico.retirar();
     cajeroAutomatico.mostrarHistorial();
     cajeroAutomatico.consultarSaldo();
-
-
+    
 
