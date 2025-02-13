@@ -28,3 +28,18 @@ tiene la propiedad b en el nuevo objeto? */
 //----------------------------------------------------------------------------------------
 
 /*  4. Unión de objetos con propiedades anidadas: Dados los objetos: */
+    const object1 = { nombre:'Carlos', direccion: { calle: 'Calle Mayor, 10'} };
+    const object2 = { direccion: { ciudad: 'Barcelona'}};
+/*  Crea un nuevo objeto que contenga las propiedades de objeto1 y objeto2. ¿Qué ocurre 
+con la propiedad direccion? */
+    const objects = {...object1, ...object2};
+    console.log(objects);
+    /* R: La propiedad de dirección del object1 se ha sobreescrito por la del object2. */
+//----------------------------------------------------------------------------------------
+
+/*  5. Unión de objetos con arrays: Dados los objetos: */
+    const objeto1 = { nombres: ['Ana', 'Carlos']};
+    const objeto2 = { apellidos: ['García', 'Pérez']};
+/*  Crea un nuevo objeto que contenga las propiedades del objeto1 y objeto2 */
+
+    
