@@ -7,22 +7,22 @@ const producto = {
 }
 
 // Object Constructor
-function Producto(nombre, precio, disponible) {
+function Producto(nombre, precio) {
     this.nombre = nombre;
     this.precio = precio;
 }
 // Propotype: Nos permite crear funciones para un objeto en específico.
 
-Producto.prototype.formatearProducto = function(){ // Ya no requiere (parametros) pues ya está definida
+Producto.prototype.formatearProducto = function () { // Ya no requiere (parametros) pues ya está definida
     return `El producto ${this.nombre} tiene un precio de: ${this.precio}`;
 };
 
-function Cliente(nombre, apellido){
+function Cliente(nombre, apellido) {
     this.nombre = nombre;
     this.apellido = apellido;
 };
 
-Cliente.prototype.formatearCliente = function(){ // Ya no requiere (parametros) pues ya está definida
+Cliente.prototype.formatearCliente = function () { // Ya no requiere (parametros) pues ya está definida
     return `El Cliente ${this.nombre} ${this.apellido} es hetero.`;
 };
 
