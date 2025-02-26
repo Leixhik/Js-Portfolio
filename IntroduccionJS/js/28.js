@@ -10,28 +10,28 @@ class Producto {
         return `El producto ${this.nombre} tiene un precio de: ${this.precio}`;
     }
 
-    precioProducto(){
-        return `El precio del producto es: ${this.precio}`;
+    obtenerPrecio(){
+        console.log(this.precio);
     }
+    
 }
 
 const producto = new Producto('Monitor Curvo de 48"', 800);
 const producto2 = new Producto('Laptop', 200);
 
 /*  Herencia */
-class Libro{ 
+class Libro extends Producto{ 
     constructor(nombre, precio, isbn){
-        this.nombre = nombre;
-        this.precio = precio;
-        this.isbn = isbn;
+        super(nombre, precio); // Llamamos al constructor de la clase padre
+        this.isbn = isbn; // Atributo propio de la clase hija
+    }
+    formatearProducto(){
+        return `${super.formatearProducto()} y su isbn es: ${this.isbn}`;
     }
 }
 
 const libro = new Libro('JavaScript la Revolución', 120, '1234567890');
-console.log(libro);
+console.log(libro.formatearProducto()); 
+console.log(producto.formatearProducto());
 
-console.log(producto);
-console.log(producto2);
 
-// console.log(producto.precioProducto());
-// console.log(producto2.precioProducto());
